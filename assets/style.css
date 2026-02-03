@@ -1,30 +1,23 @@
-/* Shared Styles for everything */
+/* Shared Styles */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; }
 
-body { 
-    display: flex; justify-content: center; align-items: center; 
-    height: 100vh; background-color: #f0f2f5; 
-}
+.edu-banner { position: fixed; top: 0; width: 100%; background: red; color: white; text-align: center; padding: 8px; font-weight: bold; z-index: 100; }
 
-/* The "Fake" Warning Banner */
-.edu-banner {
-    position: fixed; top: 0; width: 100%; background: red;
-    color: white; text-align: center; padding: 8px; font-weight: bold;
-}
+/* The Login Container */
+.login-card { background: white; padding: 40px; width: 380px; border-radius: 16px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-/* Platform-Specific Themes */
-[data-platform="x"] { background-color: #000; color: white; }
-[data-platform="facebook"] { background-color: #f0f2f5; }
-[data-platform="instagram"] { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+/* Inputs and Buttons */
+input { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; }
+.login-btn { width: 100%; padding: 12px; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 16px; margin-top: 10px; }
 
-/* The Login Box */
-.login-card {
-    background: white; padding: 40px; width: 350px;
-    border-radius: 12px; text-align: center; color: black;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
+/* PLATFORM SPECIFIC: X (Dark Mode) */
+[data-platform="x"] { background-color: #000; }
+[data-platform="x"] .login-card { background: #000; color: white; border: 1px solid #333; }
+[data-platform="x"] input { background: #000; border: 1px solid #333; color: white; }
+[data-platform="x"] .login-btn { background: white; color: black; }
 
-.login-btn {
-    width: 100%; padding: 12px; margin-top: 20px;
-    border: none; border-radius: 6px; cursor: pointer; font-weight: bold;
-}
+/* Helper Classes */
+.hidden { display: none; }
+.loading-spinner { border: 3px solid #f3f3f3; border-top: 3px solid #3498db; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; display: inline-block; margin-right: 10px; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
