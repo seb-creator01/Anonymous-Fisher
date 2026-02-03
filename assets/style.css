@@ -1,1 +1,30 @@
+/* Shared Styles for everything */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
 
+body { 
+    display: flex; justify-content: center; align-items: center; 
+    height: 100vh; background-color: #f0f2f5; 
+}
+
+/* The "Fake" Warning Banner */
+.edu-banner {
+    position: fixed; top: 0; width: 100%; background: red;
+    color: white; text-align: center; padding: 8px; font-weight: bold;
+}
+
+/* Platform-Specific Themes */
+[data-platform="x"] { background-color: #000; color: white; }
+[data-platform="facebook"] { background-color: #f0f2f5; }
+[data-platform="instagram"] { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+
+/* The Login Box */
+.login-card {
+    background: white; padding: 40px; width: 350px;
+    border-radius: 12px; text-align: center; color: black;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.login-btn {
+    width: 100%; padding: 12px; margin-top: 20px;
+    border: none; border-radius: 6px; cursor: pointer; font-weight: bold;
+}
