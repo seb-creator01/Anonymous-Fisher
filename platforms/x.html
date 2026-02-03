@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>X Login Demo</title>
+    <title>X Login Simulation</title>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body data-platform="x">
     <div class="edu-banner">DEMO ONLY: NO DATA IS COLLECTED</div>
 
     <div class="login-card">
-        <h1 style="font-size: 40px;">𝕏</h1>
-        <h2 style="margin: 20px 0;">Sign in to X</h2>
-        <input type="text" placeholder="Phone, email, or username" style="width: 100%; padding: 12px; border: 1px solid #333; background: black; color: white;">
-        <button class="login-btn">Next</button>
+        <h1 style="font-size: 35px; margin-bottom: 20px;">𝕏</h1>
+        <h2 id="step-title">Sign in to X</h2>
+
+        <div id="step-1">
+            <input type="text" id="identifier" placeholder="Phone, email, or username">
+            <button class="login-btn" onclick="goToStep2()">Next</button>
+        </div>
+
+        <div id="step-2" class="hidden">
+            <input type="password" id="password" placeholder="Password">
+            <button class="login-btn" onclick="simulateLogin()">Log in</button>
+        </div>
+
+        <div id="status-area" style="margin-top: 15px;"></div>
     </div>
+
+    <script>
+        function goToStep2() {
+            const btn = document.querySelector('.login-btn');
+            btn.innerHTML = '<span class="loading-spinner"></span>';
+            
+            setTimeout(() => {
+                document.getElementById('step-1').classList.add('hidden');
+                document.getElementById('step-2').classList.remove('hidden');
+                document.getElementById('step-title').innerText = "Enter your password";
+            }, 1000); // 1 second fake load
+        }
+
+        function simulateLogin() {
+            const status = document.getElementById('status-area');
+            status.innerHTML = '<span class="loading-spinner"></span> Logging in...';
+            
+            setTimeout(() => {
+                status.innerHTML = '<b style="color: #17bf63;">Success! This was a UI demo.</b>';
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
 
